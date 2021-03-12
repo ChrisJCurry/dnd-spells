@@ -1,15 +1,14 @@
 import Axios from 'axios'
 
-export const baseURL = window.location.origin.includes('localhost') ? 'http://localhost:3000' : ''
-export const api = Axios.create({
-  baseURL,
+export const pokeApi = Axios.create({
+  baseURL: 'https://pokeapi.co/api/v2/pokemon',
   timeout: 8000
 })
 
 export const setBearer = function(bearer) {
-  api.defaults.headers.authorization = bearer
+  pokeApi.defaults.headers.authorization = bearer
 }
 
 export const resetBearer = function() {
-  api.defaults.headers.authorization = ''
+  pokeApi.defaults.headers.authorization = ''
 }
